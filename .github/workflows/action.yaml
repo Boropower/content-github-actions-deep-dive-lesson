@@ -13,7 +13,10 @@ jobs:
         with:
           python-version: 3.8
       - name: Install libraries
-        run: pip3 install flake8
+        run: |
+          pip3 install flake8
+          export PATH=${PATH}:/Library/Frameworks/Python.framework/Versions/3.8/bin
+          flake8 --help
       - name: Lint with flake8
         run: |
             cd function
